@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <center>
+        <h2>Contact Us</h2>
+        <p>Have questions or inquiries? Feel free to reach out to us.</p>
+        
+        <div class="contact-info">
+            <p><strong>Company Name:</strong> Shaun Technologies</p>
+            <p><strong>Contact Number:</strong> 90800988</p>
+            <p><strong>Email:</strong> <a href="mailto:shauntechi@gmail.com">shauntechi@gmail.com</a></p>
+        </div>
+        
+        <div class="social-icons">
+            <a href="http://www.linkedin.com"><img src="icon.png" height="20"></a>
+            <a href="http://www.instagram.com"><img src="instagram.png" height="20"></a>
+        </div>
+
+        <div class="contact-form">
+            <h3>Contact Form</h3>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required onblur="validateField('name')"><br>
+                <span id="nameError" class="error"></span><br>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required onblur="validateField('email')"><br>
+                <span id="emailError" class="error"></span><br>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" onblur="validateField('phone')"><br>
+                <span id="phoneError" class="error"></span><br>
+                
+                <label for="query">Query/Question:</label>
+                <textarea id="query" name="query" rows="4" required onblur="validateField('query')"></textarea><br>
+                <span id="queryError" class="error"></span><br>
+                
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </center>
+
+    <script>
+        function validateField(fieldName) {
+            var field = document.getElementById(fieldName);
+            var errorSpan = document.getElementById(fieldName + "Error");
+            if (field.value.trim() === "") {
+                field.style.borderColor = 'yellow';
+                errorSpan.style.color = 'yellow';
+                errorSpan.textContent = fieldName.charAt(0).toUpperCase() + fieldName.slice(1) + " cannot be empty";
+            } else {
+                field.style.borderColor = '';
+                errorSpan.textContent = "";
+            }
+        }
+    </script>
+</body>
+</html>
+
+

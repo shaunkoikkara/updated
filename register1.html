@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url('bgimg.jpg'); /* Background image path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 340px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #08093d;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        h2 {
+            text-align: center;
+            color: #b6ebf1;
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            color: rgb(247, 245, 250);
+        }
+        
+        input[type="text"],
+        input[type="password"],
+        input[type="date"],
+        input[type="number"],
+        input[type="email"],
+        select {
+            width: 75%;
+            padding: 8px;
+            border: 3px solid #0f57b6;
+            border-radius: 15px;
+        }
+        
+
+    
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        
+        input[type="submit"] {
+            background-color: #3995a1;
+            color: #e9dfdf;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .grping {
+            display: flex;
+            align-items: center;
+        }
+
+        .grping a {
+            margin-left: auto;
+        }
+
+        .oneline label {
+           display: inline-block;
+           margin-right: 10px; 
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <h2>Sign Up</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="firstName">Enter your full Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Enter your full name" onfocusout="validateFirstName()" required>
+                    <span id="firstNameError" style="color: yellow;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Enter the Password</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Create a password" onfocusout="validateLastName()" required>
+                    <span id="lastNameError" style="color: yellow;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" onfocusout="validateDOB()" required>
+                    <span id="dobError" style="color: yellow;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" placeholder="Age" onfocusout="validateAge()" required>
+                    <span id="ageError" style="color: yellow;"></span>
+                </div>
+                <div class="form-group">
+                    <div class="oneline">
+                        <label>Gender:</label>
+                        <input type="radio" id="male" name="gender" value="m" onfocusout="validateGender()" required>
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="f" onfocusout="validateGender()" required>
+                        <label for="female">Female</label>
+                        <input type="radio" id="other" name="gender" value="other" onfocusout="validateGender()" required>
+                        <label for="other">Other</label>
+                    </div>
+                    <span id="genderError" style="color: yellow;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="mob">Phone Number:</label>
+                    <input type="number" id="mob" name="phoneNumber" placeholder="Enter your phone number" onfocusout="validatePhoneNumber()" required>
+                    <span id="phoneNumberError" style="color: yellow;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" onfocusout="validateEmail()" required>
+                    <span id="emailError" style="color: yellow;"></span>
+                </div>
+               
+                <div class="form-group">
+                    <input type="submit" value="Sign Up">
+                </div>
+            </form>
+            <div class="form-group">
+                <div class="gring">
+                    <label for="rememberMe">Not a Member</label> <a href="Register.html">Sign Up</a>
+                </div>
+            </div>
+        </center>
+    </div>
+
+    <script>
+        function validateFirstName() {
+            var firstNameField = document.getElementById("firstName");
+            var firstName = firstNameField.value.trim();
+            var firstNameError = document.getElementById("firstNameError");
+
+            if (firstName === "") {
+                firstNameError.textContent = "Please enter your name";
+                firstNameField.style.borderColor = "yellow";
+            } else {
+                firstNameError.textContent = "";
+                firstNameField.style.borderColor = "";
+            }
+        }
+
+        function validateLastName() {
+            var lastNameField = document.getElementById("lastName");
+            var lastName = lastNameField.value.trim();
+            var lastNameError = document.getElementById("lastNameError");
+
+            if (lastName === "") {
+                lastNameError.textContent = "Please create a password";
+                lastNameField.style.borderColor = "yellow";}
+
+                else if(lastName.length<11) {
+                lastNameError.textContent = "Incorrect password format";
+                lastNameField.style.borderColor = "yellow";
+
+                }
+             else {
+                lastNameError.textContent = "";
+                lastNameField.style.borderColor = "";
+            }
+        }
+
+        function validateDOB() {
+            var dobField = document.getElementById("dob");
+            var dob = dobField.value;
+            var dobError = document.getElementById("dobError");
+
+            if (dob === "") {
+                dobError.textContent = "Date of Birth is required";
+                dobField.style.borderColor = "yellow";
+            } else {
+                dobError.textContent = "";
+                dobField.style.borderColor = "";
+            }
+        }
+
+        function validateAge() {
+            var ageField = document.getElementById("age");
+            var age = ageField.value;
+            var ageError = document.getElementById("ageError");
+
+            if (age === "") {
+                ageError.textContent = "Age not Entered";
+                ageField.style.borderColor = "yellow";
+            } else {
+                ageError.textContent = "";
+                ageField.style.borderColor = "";
+            }
+        }
+
+        function validateGender() {
+            var genderField = document.querySelector('input[name="gender"]:checked');
+            var genderError = document.getElementById("genderError");
+
+            if (!genderField) {
+                genderError.textContent = "Gender not Entered";
+            } else {
+                genderError.textContent = "";
+            }
+        }
+
+        function validatePhoneNumber() {
+            var phoneNumberField = document.getElementById("mob");
+            var phoneNumber = phoneNumberField.value;
+            var phoneNumberError = document.getElementById("phoneNumberError");
+
+            if (phoneNumber === "") {
+                phoneNumberError.textContent = "Require phone number";
+                phoneNumberField.style.borderColor = "yellow";
+            } else {
+                phoneNumberError.textContent = "";
+                phoneNumberField.style.borderColor = "";
+            }
+        }
+
+
+        function validateEmail() {
+            var emailField = document.getElementById("email");
+            var email = emailField.value.trim();
+            var emailError = document.getElementById("emailError");
+
+            // Regular expression for a simple email format validation
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "") {
+                emailError.textContent = "Email Address not entered";
+                emailField.style.borderColor = "yellow";
+            } else if (!email.match(emailRegex)) {
+                emailError.textContent = "Enter a valid email address (e.g., name@example.com)";
+                emailField.style.borderColor = "yellow";
+            } else {
+                emailError.textContent = "";
+                emailField.style.borderColor = "";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Additional CSS for the image carousel */
+        #carousal {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #carousal img:not(:first-child) {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>About Us</h2>
+    </header>
+    <main>
+        <div class="content">
+            <p>Our company Shaun Technology has 20 years of service in the IT Industry.</p>
+            <p>Founded in 2019 by Mr. Shaun Biju, the company remains one of the best options for creating web-based applications.</p>
+            <p>We hope to provide you with the best possible service. Our services include Artificial Intelligence, Blockchain, App Development, and many other fields.</p>
+            <p>Feel free to <a href="contact.html">contact us</a> if you have any questions or inquiries.</p>
+        </div>
+        <div id="carousal" class="Ccontainer">
+            <img src="company.jpg" alt="Company Image">
+            <img src="company2.jpg" alt="Image 1">
+            <img src="comp2.jpg" alt="Image 2">
+            <img src="imgg2.jpg" alt="Image 3">
+        </div>
+    </main>
+    <footer>
+        <div class="contact-info">
+            <p>Contact us at: example@email.com</p>
+        </div>
+        <div class="social-icons">
+            <a href="#"><img src="icon.png" alt="Facebook"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        </div>
+    </footer>
+    <script>
+        let currentImage = 0;
+        const images = document.querySelectorAll('#carousal img');
+
+        function showNextImage() {
+            images[currentImage].style.display = 'none';
+            currentImage = (currentImage + 1) % images.length;
+            images[currentImage].style.display = 'block';
+        }
+
+        // Start the image carousel
+        setInterval(showNextImage, 3000); // Change image every 3 seconds (adjust as needed)
+    </script>
+</body>
+</html>
